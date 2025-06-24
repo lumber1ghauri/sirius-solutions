@@ -5,6 +5,7 @@ import autoprefixer from 'autoprefixer'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/',
   css: {
     postcss: {
       plugins: [
@@ -13,4 +14,5 @@ export default defineConfig({
       ],
     },
   },
+  publicDir: 'public',
 })

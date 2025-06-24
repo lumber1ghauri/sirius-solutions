@@ -11,7 +11,7 @@ const Navbar = () => {
             <img 
               src="/logo.png" 
               alt="Sirius Solutions Logo" 
-              className="h-20 w-auto md:h-16" // Increased size, with responsive sizing
+              className="h-100 w-auto md:h-16" // Increased size, with responsive sizing
             />
             <span className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white">Sirius Solutions</span>
           </div>

@@ -15,10 +15,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-gray-800 transition-colors duration-200">
+    <section id="contact" className="py-20 transition-colors duration-200">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Contact Us</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 backdrop-blur-sm bg-white/50 dark:bg-gray-800/50 p-8 rounded-lg shadow-lg">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Name
@@ -28,7 +28,7 @@ const Contact = () => {
               id="name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:text-white"
+              className="mt-1 block w-full rounded-md border-gray-300 bg-white/70 dark:bg-gray-700/70 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:text-white"
               required
             />
           </div>
@@ -41,7 +41,7 @@ const Contact = () => {
               id="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:text-white"
+              className="mt-1 block w-full rounded-md border-gray-300 bg-white/70 dark:bg-gray-700/70 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:text-white"
               required
             />
           </div>
@@ -54,7 +54,7 @@ const Contact = () => {
               rows={4}
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:text-white"
+              className="mt-1 block w-full rounded-md border-gray-300 bg-white/70 dark:bg-gray-700/70 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:text-white"
               required
             />
           </div>

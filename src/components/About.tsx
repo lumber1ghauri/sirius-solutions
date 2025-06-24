@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-800 transition-colors duration-200">
+    <section id="about" className="py-20 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:flex lg:items-center lg:justify-between">
           <div className="lg:w-1/2">
@@ -15,7 +15,7 @@ const About = () => {
             </p>
           </div>
           <div className="mt-8 lg:mt-0 lg:w-1/2 lg:pl-12">
-            <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-64 flex items-center justify-center">
+            <div className="bg-gray-200/50 dark:bg-gray-700/50 backdrop-blur-sm rounded-lg h-64 flex items-center justify-center">
               <span className="text-gray-500 dark:text-gray-400">Placeholder for company image</span>
             </div>
           </div>
