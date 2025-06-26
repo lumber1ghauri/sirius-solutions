@@ -1,69 +1,64 @@
-# React + TypeScript + Vite
+# 🌟 Sirius Solutions - Professional Software Development Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, dynamic website for Sirius Solutions with full admin dashboard and database functionality.
 
-Currently, two official plugins are available:
+## 🚀 Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Automatic Setup (Recommended)
 
-## Expanding the ESLint configuration
+**Windows:** Double-click `start.bat`
+**PowerShell:** `.\start.ps1`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Manual Setup
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**Frontend:**
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**Backend (New Terminal):**
+```bash
+cd backend
+npm install
+npm run dev
 ```
+
+## 🎯 Key Features
+
+### ✨ **Public Website**
+- Modern design with animations
+- Dynamic blog with search & filtering  
+- Testimonials system
+- Contact forms with validation
+- Fully responsive
+
+### 🔒 **Admin Dashboard**
+- Secure authentication (password: `admin123`)
+- Blog management (create, edit, publish)
+- Testimonial approval system
+- Form monitoring
+- Live chat support
+- Analytics dashboard
+
+### 💾 **Database & Persistence**
+- JSON file database with API
+- LocalStorage fallback
+- Real-time sync
+- Data validation
+
+## 📊 Access Points
+
+- **Website:** http://localhost:5173
+- **Admin:** http://localhost:5173/admin-dashboard
+- **API:** http://localhost:3001/api/health
+
+## 📁 Documentation
+
+- `DATABASE_SETUP_GUIDE.md` - Complete setup instructions
+- `ADMIN_DASHBOARD_GUIDE.md` - Admin usage guide
+- `backend/README.md` - API documentation
+
+---
+
+**Built by Sirius Solutions Team** 🚀
