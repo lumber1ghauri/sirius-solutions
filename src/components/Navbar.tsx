@@ -21,7 +21,6 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', href: '/', internal: true },
     { name: 'About', href: '/about-us', internal: true },
-    { name: 'Help', href: '/help-center', internal: true },
     { name: 'Contact', href: '/contact-us', internal: true },
     { name: 'Careers', href: '/careers', internal: true },
   ]
@@ -66,7 +65,7 @@ const Navbar = () => {
               className="flex items-center"
             >
               <img 
-                src="/NavbarLogo.png" 
+                src={import.meta.env.BASE_URL + "NavbarLogo.png"}
                 alt="Sirius Solutions Logo" 
                 className="h-12 w-auto"
               />

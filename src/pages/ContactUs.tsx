@@ -12,8 +12,6 @@ const ContactUs = () => {
     company: '',
     position: '',
     projectType: '',
-    budget: '',
-    timeline: '',
     message: '',
     preferredContact: 'email',
     newsletter: false
@@ -26,23 +24,23 @@ const ContactUs = () => {
     {
       icon: Mail,
       title: "Email Us",
-      info: "hello@siriussolutions.com",
+      info: "ukashazahid3@gmail.com",
       description: "Send us an email and we'll respond within 24 hours",
-      action: "mailto:hello@siriussolutions.com"
+      action: "mailto:ukashazahid3@gmail.com"
     },
     {
       icon: Phone,
       title: "Call Us",
-      info: "+1 (555) 123-SIRIUS",
+      info: "+92 3097928616",
       description: "Speak directly with our team during business hours",
-      action: "tel:+15551237474873"
+      action: "tel:+923264647602"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      info: "123 Innovation Drive, Tech City, TC 12345",
+      info: "E-1 Block, Johar Town, Lahore",
       description: "Schedule a visit to our modern office space",
-      action: "https://maps.google.com"
+      action: "https://www.google.com/maps/search/?api=1&query=E-1+Block+Johar+Town+Lahore+Pakistan"
     },
     {
       icon: Clock,
@@ -69,23 +67,6 @@ const ContactUs = () => {
     "Cloud Migration",
     "API Development",
     "Other"
-  ]
-
-  const budgetRanges = [
-    "Under $10,000",
-    "$10,000 - $25,000",
-    "$25,000 - $50,000",
-    "$50,000 - $100,000",
-    "$100,000 - $250,000",
-    "$250,000+"
-  ]
-
-  const timelines = [
-    "ASAP",
-    "1-3 months",
-    "3-6 months",
-    "6-12 months",
-    "12+ months"
   ]
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -227,7 +208,8 @@ const ContactUs = () => {
                         </a>
                       ) : (
                         <div className="text-[#44bee7] font-medium">{contact.info}</div>
-                      )}
+                      )
+                      }
                       <p className="text-gray-400 text-sm mt-1">{contact.description}</p>
                     </div>
                   </motion.div>
@@ -372,37 +354,6 @@ const ContactUs = () => {
                       <option key={type} value={type}>{type}</option>
                     ))}
                   </select>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-white font-medium mb-2">Budget Range</label>
-                    <select
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white focus:border-[#44bee7] focus:ring-2 focus:ring-[#44bee7]/20 transition-all duration-300"
-                    >
-                      <option value="">Select budget range</option>
-                      {budgetRanges.map((range) => (
-                        <option key={range} value={range}>{range}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-white font-medium mb-2">Timeline</label>
-                    <select
-                      name="timeline"
-                      value={formData.timeline}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white focus:border-[#44bee7] focus:ring-2 focus:ring-[#44bee7]/20 transition-all duration-300"
-                    >
-                      <option value="">Select timeline</option>
-                      {timelines.map((time) => (
-                        <option key={time} value={time}>{time}</option>
-                      ))}
-                    </select>
-                  </div>
                 </div>
 
                 {/* Message */}

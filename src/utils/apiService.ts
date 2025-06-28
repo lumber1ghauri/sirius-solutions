@@ -191,12 +191,43 @@ export class HybridDataService {
   }
 
   private async syncLocalDataToServer() {
-    // Sync any temporary data to server when coming online
+    if (!this.isOnline) return;
+
     try {
-      // Handle offline form submissions, testimonials, and chat sessions when back online
-      // Implementation specific to each type can be added here
+      // Sync form submissions
+      const localForms = JSON.parse(localStorage.getItem('form-submissions') || '[]');
+      for (const form of localForms) {
+        if (!form.synced) {
+          const response = await apiService.createFormSubmission(form);
+          if (response.data) {
+            this.updateLocalCache('form-submissions', response.data, response.data.id);
+          }
+        }
+      }
+
+      // Sync testimonials
+      const localTestimonials = JSON.parse(localStorage.getItem('testimonials') || '[]');
+      for (const testimonial of localTestimonials) {
+        if (!testimonial.synced) {
+          const response = await apiService.createTestimonial(testimonial);
+          if (response.data) {
+            this.updateLocalCache('testimonials', response.data, response.data.id);
+          }
+        }
+      }
+
+      // Sync chat sessions
+      const localChats = JSON.parse(localStorage.getItem('chat-sessions') || '[]');
+      for (const chat of localChats) {
+        if (!chat.synced) {
+          const response = await apiService.createChatSession(chat);
+          if (response.data) {
+            this.updateLocalCache('chat-sessions', response.data, response.data.id);
+          }
+        }
+      }
     } catch (error) {
-      console.error('Failed to sync data to server:', error)
+      console.error('Failed to sync data to server:', error);
     }
   }
 }

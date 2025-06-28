@@ -9,7 +9,7 @@ const AboutUs = () => {
       role: "Co-Founder & CEO",
       education: "BSIT - AI and Automation Specialist",
       specialization: "Agentic AI",
-      image: "/ukasha.png", // Updated to use actual image
+      image: import.meta.env.BASE_URL + "ukasha.png",
       bio: "Ukasha is a visionary automation engineer with expertise in creating intelligent systems that streamline business processes. His passion for automation drives our commitment to building efficient, scalable solutions that reduce manual effort and maximize productivity.",
       expertise: [
         "Process Automation & Optimization",
@@ -36,7 +36,7 @@ const AboutUs = () => {
       role: "Co-Founder & CTO",
       education: "BSIT - AI and Web Development Specialist",
       specialization: "Artificial Intelligence",
-      image: "/mujeeb.png", // Placeholder - replace with actual image
+      image: import.meta.env.BASE_URL + "mujeeb.png",
       bio: "Mujeeb is an AI innovator who brings cutting-edge artificial intelligence solutions to real-world problems. His deep understanding of machine learning and data science enables us to create intelligent applications that learn, adapt, and evolve with user needs.",
       expertise: [
         "Machine Learning & Deep Learning",
@@ -63,7 +63,7 @@ const AboutUs = () => {
       role: "Co-Founder & CDO",
       education: "BSIT - Devops and Development Specialist",
       specialization: "Full Stack Development",
-      image: "/hassan.png", // Placeholder - replace with actual image
+      image: import.meta.env.BASE_URL + "hassan.png",
       bio: "Hassan is a full-stack development expert who architects and builds robust, scalable web applications. His comprehensive understanding of both frontend and backend technologies ensures our solutions are not only functional but also user-friendly and performant.",
       expertise: [
         "Frontend Development (React, Vue, Angular)",

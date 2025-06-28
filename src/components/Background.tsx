@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { motion } from 'framer-motion';
 
-const BACKGROUND_IMAGE = '/background-white.png';
+const BACKGROUND_IMAGE = import.meta.env.BASE_URL + 'background-white.png';
 
 const Background = () => {
   const { theme } = useTheme();

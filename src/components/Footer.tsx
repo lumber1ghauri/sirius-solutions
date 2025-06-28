@@ -60,7 +60,7 @@ const Footer = () => {
             >
               <div className="flex items-center">
                 <img 
-                  src="/NavbarLogo.png" 
+                  src={import.meta.env.BASE_URL + "NavbarLogo.png"}
                   alt="Sirius Solutions Logo" 
                   className="h-20 w-auto"
                 />
