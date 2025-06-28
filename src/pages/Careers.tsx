@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion'
-import { MapPin, Clock, DollarSign, GraduationCap, Send, Upload, X, CheckCircle, Star, Award, Coffee, Briefcase, Heart } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { MapPin, Clock, DollarSign, GraduationCap, Send, Upload, X, CheckCircle, Star, Award, Coffee, Briefcase, Heart, Calendar, Mail } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 const Careers = () => {
+  const navigate = useNavigate();
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [notificationEmail, setNotificationEmail] = useState('');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -207,6 +210,15 @@ const Careers = () => {
       setIsSubmitted(true)
     }, 2000)
   }
+
+  const handleNotificationSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you would typically send the email to your backend
+    setEmailSubmitted(true);
+    setTimeout(() => {
+      navigate('/');
+    }, 3000);
+  };
 
   if (isSubmitted) {
     return (
@@ -789,6 +801,113 @@ const Careers = () => {
               </motion.button>
             </div>
           </form>
+        </motion.div>
+
+        {/* Hiring Soon Overlay */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4"
+        >
+          <motion.div
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="glass rounded-2xl p-12 w-full max-w-4xl mx-auto text-center"
+          >
+            {!emailSubmitted ? (
+              <>
+                <h2 className="text-4xl font-bold text-white mb-6">
+                  We're <span className="gradient-text">Hiring Soon!</span>
+                </h2>
+                <p className="text-xl text-gray-300 mb-8">
+                  We're preparing to expand our team with talented individuals who are passionate about technology and innovation.
+                </p>
+
+                <div className="grid md:grid-cols-3 gap-8 mb-12">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="glass p-8 rounded-xl"
+                  >
+                    <Calendar className="w-12 h-12 text-[#44bee7] mb-4 mx-auto" />
+                    <h3 className="text-white text-lg font-semibold mb-3">Coming Soon</h3>
+                    <p className="text-gray-300">Multiple positions opening in various departments</p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="glass p-8 rounded-xl"
+                  >
+                    <Star className="w-12 h-12 text-[#44bee7] mb-4 mx-auto" />
+                    <h3 className="text-white text-lg font-semibold mb-3">Opportunities</h3>
+                    <p className="text-gray-300">Exciting roles in development, design, and management</p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="glass p-8 rounded-xl"
+                  >
+                    <Mail className="w-12 h-12 text-[#44bee7] mb-4 mx-auto" />
+                    <h3 className="text-white text-lg font-semibold mb-3">Stay Updated</h3>
+                    <p className="text-gray-300">Subscribe to receive notifications when positions open</p>
+                  </motion.div>
+                </div>
+
+                <div className="max-w-2xl mx-auto">
+                  <h3 className="text-2xl font-semibold text-white mb-6">Get Notified</h3>
+                  <form onSubmit={handleNotificationSubmit} className="flex gap-4">
+                    <input
+                      type="email"
+                      value={notificationEmail}
+                      onChange={(e) => setNotificationEmail(e.target.value)}
+                      placeholder="Enter your email address"
+                      required
+                      className="flex-1 bg-white/10 border border-gray-600 rounded-lg px-6 py-4 text-white placeholder-gray-400 focus:border-[#44bee7] focus:outline-none transition-colors text-lg"
+                    />
+                    <button
+                      type="submit"
+                      className="bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white px-8 py-4 rounded-lg hover:shadow-lg transition-all duration-300 text-lg font-semibold"
+                    >
+                      Subscribe
+                    </button>
+                  </form>
+                  <p className="text-gray-400 text-sm mt-4">
+                    We'll notify you when new positions become available.
+                  </p>
+                </div>
+              </>
+            ) : (
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="py-8"
+              >
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.2, type: "spring" }}
+                  className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6"
+                >
+                  <CheckCircle size={48} className="text-white" />
+                </motion.div>
+                <h2 className="text-3xl font-bold text-white mb-4">
+                  Thank You for Subscribing!
+                </h2>
+                <p className="text-xl text-gray-300 mb-4">
+                  We'll keep you updated about new job opportunities at Sirius Solutions.
+                </p>
+                <p className="text-gray-400">
+                  Redirecting you to home page...
+                </p>
+              </motion.div>
+            )}
+          </motion.div>
         </motion.div>
       </div>
     </div>

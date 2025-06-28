@@ -6,6 +6,7 @@ import About from './components/About'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import WhatsAppButton from './components/WhatsAppButton'
 import SoftwareDevelopment from './pages/SoftwareDevelopment'
 import UIUXDesign from './pages/UIUXDesign'
 import ProjectManagement from './pages/ProjectManagement'
@@ -79,7 +80,12 @@ const AppLayout = () => {
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
         </Routes>
       </main>
-      {!isAdminDashboard && <Footer />}
+      {!isAdminDashboard && (
+        <>
+          <Footer />
+          <WhatsAppButton />
+        </>
+      )}
     </div>
   )
 }

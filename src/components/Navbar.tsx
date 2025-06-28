@@ -106,80 +106,72 @@ const Navbar = () => {
             
             {/* Services Dropdown */}
             <div 
-              className="relative"
-              onMouseEnter={() => setServicesDropdown(true)}
-              onMouseLeave={() => setServicesDropdown(false)}
+              className="relative group"
             >
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: navItems.length * 0.1 }}
-                className="text-gray-300 hover:text-white transition-colors duration-200 relative group cursor-pointer flex items-center space-x-1"
+                className="text-gray-300 hover:text-white transition-colors duration-200 relative cursor-pointer flex items-center space-x-1"
               >
                 <span>Services</span>
                 <ChevronDown size={16} className={`transition-transform duration-200 ${servicesDropdown ? 'rotate-180' : ''}`} />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] group-hover:w-full transition-all duration-300"></span>
               </motion.div>
               
-              {/* Dropdown Menu - UPDATED WITH DYNAMIC STYLES */}
-              {servicesDropdown && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="absolute top-full left-0 mt-2 w-52 rounded-lg shadow-lg py-2 z-50 transition-all duration-300"
-                  style={getDropdownStyles()}
-                >
-                  {serviceItems.map((service) => (
-                    <Link
-                      key={service.name}
-                      to={service.href}
-                      className="block px-4 py-3 text-white hover:text-blue-300 hover:bg-white/10 transition-all duration-200 font-medium border-b border-white/10 last:border-b-0"
-                    >
-                      {service.name}
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
+              {/* Dropdown Menu */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute top-full left-0 mt-2 w-52 rounded-lg shadow-lg py-2 z-50 transition-all duration-300"
+                style={getDropdownStyles()}
+              >
+                {serviceItems.map((service) => (
+                  <Link
+                    key={service.name}
+                    to={service.href}
+                    className="block px-4 py-3 text-white hover:text-blue-300 hover:bg-white/10 transition-all duration-200 font-medium border-b border-white/10 last:border-b-0"
+                  >
+                    {service.name}
+                  </Link>
+                ))}
+              </motion.div>
             </div>
 
             {/* Company Dropdown */}
             <div 
-              className="relative"
-              onMouseEnter={() => setCompanyDropdown(true)}
-              onMouseLeave={() => setCompanyDropdown(false)}
+              className="relative group"
             >
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: (navItems.length + 1) * 0.1 }}
-                className="text-gray-300 hover:text-white transition-colors duration-200 relative group cursor-pointer flex items-center space-x-1"
+                className="text-gray-300 hover:text-white transition-colors duration-200 relative cursor-pointer flex items-center space-x-1"
               >
                 <span>Company</span>
                 <ChevronDown size={16} className={`transition-transform duration-200 ${companyDropdown ? 'rotate-180' : ''}`} />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] group-hover:w-full transition-all duration-300"></span>
               </motion.div>
               
-              {/* Company Dropdown Menu - UPDATED WITH DYNAMIC STYLES */}
-              {companyDropdown && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="absolute top-full left-0 mt-2 w-52 rounded-lg shadow-lg py-2 z-50 transition-all duration-300"
-                  style={getDropdownStyles()}
-                >
-                  {companyItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className="block px-4 py-3 text-white hover:text-blue-300 hover:bg-white/10 transition-all duration-200 font-medium border-b border-white/10 last:border-b-0"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
+              {/* Company Dropdown Menu */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute top-full left-0 mt-2 w-52 rounded-lg shadow-lg py-2 z-50 transition-all duration-300"
+                style={getDropdownStyles()}
+              >
+                {companyItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="block px-4 py-3 text-white hover:text-blue-300 hover:bg-white/10 transition-all duration-200 font-medium border-b border-white/10 last:border-b-0"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </motion.div>
             </div>
           </div>
 
