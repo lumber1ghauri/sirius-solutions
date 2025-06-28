@@ -59,7 +59,7 @@ const AboutUs = () => {
       }
     },
     {
-      name: "Hassan A",
+      name: "Hassan Adil",
       role: "Co-Founder & CDO",
       education: "BSIT - Devops and Development Specialist",
       specialization: "Full Stack Development",
