@@ -19,7 +19,10 @@ import {
 const Security: React.FC = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0 },
+    animate: { opacity: 1, y: 0 }
+  };
+
+  const fadeInUpTransition = {
     transition: { duration: 0.6 }
   };
 
@@ -143,6 +146,7 @@ const Security: React.FC = () => {
             <motion.div
               className="flex justify-center mb-6"
               variants={fadeInUp}
+              {...fadeInUpTransition}
             >
               <div className="p-4 bg-gradient-to-r from-primary to-secondary rounded-full">
                 <Shield className="w-12 h-12 text-white" />
@@ -152,6 +156,7 @@ const Security: React.FC = () => {
             <motion.h1
               className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
               variants={fadeInUp}
+              {...fadeInUpTransition}
             >
               Security & Real-Time Operations
             </motion.h1>
@@ -159,6 +164,7 @@ const Security: React.FC = () => {
             <motion.p
               className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
               variants={fadeInUp}
+              {...fadeInUpTransition}
             >
               Our advanced security infrastructure ensures your data is protected while enabling 
               real-time operations with zero-compromise performance and enterprise-grade reliability.
@@ -175,6 +181,7 @@ const Security: React.FC = () => {
             initial="initial"
             animate="animate"
             variants={fadeInUp}
+            {...fadeInUpTransition}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Real-Time Data Operations
@@ -196,6 +203,7 @@ const Security: React.FC = () => {
                 key={index}
                 className="glass-card p-6 text-center hover:scale-105 transition-transform duration-300"
                 variants={fadeInUp}
+                {...fadeInUpTransition}
               >
                 <div className="flex justify-center mb-4 text-primary">
                   {capability.icon}
@@ -216,6 +224,7 @@ const Security: React.FC = () => {
             initial="initial"
             animate="animate"
             variants={fadeInUp}
+            {...fadeInUpTransition}
           >
             <h3 className="text-2xl font-bold mb-8 text-center text-white">
               Real-Time Data Flow Architecture
@@ -263,6 +272,7 @@ const Security: React.FC = () => {
             initial="initial"
             animate="animate"
             variants={fadeInUp}
+            {...fadeInUpTransition}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Advanced Security Features
@@ -284,6 +294,7 @@ const Security: React.FC = () => {
                 key={index}
                 className="glass-card p-8 hover:scale-105 transition-transform duration-300"
                 variants={fadeInUp}
+                {...fadeInUpTransition}
               >
                 <div className="flex items-center mb-6">
                   <div className="p-3 bg-gradient-to-r from-primary to-secondary rounded-lg mr-4 text-white">
@@ -320,6 +331,7 @@ const Security: React.FC = () => {
             initial="initial"
             animate="animate"
             variants={fadeInUp}
+            {...fadeInUpTransition}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Multi-Layer Security Architecture
@@ -340,6 +352,7 @@ const Security: React.FC = () => {
                 key={index}
                 className="glass-card p-6 hover:bg-white/10 transition-colors duration-300"
                 variants={fadeInUp}
+                {...fadeInUpTransition}
               >
                 <div className="flex flex-col md:flex-row md:items-center">
                   <div className="md:w-1/4 mb-4 md:mb-0">
@@ -372,6 +385,7 @@ const Security: React.FC = () => {
             initial="initial"
             animate="animate"
             variants={fadeInUp}
+            {...fadeInUpTransition}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Compliance & Certifications
@@ -393,6 +407,7 @@ const Security: React.FC = () => {
                 key={index}
                 className="glass-card p-6 text-center hover:scale-105 transition-transform duration-300"
                 variants={fadeInUp}
+                {...fadeInUpTransition}
               >
                 <div className="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                   <FileText className="w-8 h-8 text-white" />
@@ -413,6 +428,7 @@ const Security: React.FC = () => {
             initial="initial"
             animate="animate"
             variants={fadeInUp}
+            {...fadeInUpTransition}
           >
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
@@ -466,6 +482,7 @@ const Security: React.FC = () => {
             initial="initial"
             animate="animate"
             variants={fadeInUp}
+            {...fadeInUpTransition}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Ready to Secure Your Real-Time Operations?
