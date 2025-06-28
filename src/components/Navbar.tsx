@@ -6,9 +6,8 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [servicesDropdown, setServicesDropdown] = useState(false)
-  const [companyDropdown, setCompanyDropdown] = useState(false)
-
+  const [servicesDropdown] = useState(false)
+  const [companyDropdown] = useState(false)
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)

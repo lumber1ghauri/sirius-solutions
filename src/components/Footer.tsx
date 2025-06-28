@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowUp, Github, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react'
+import { ArrowUp, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
