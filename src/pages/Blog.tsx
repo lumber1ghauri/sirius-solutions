@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, Calendar, Clock, ArrowRight, Search, Filter, Tag, Eye, MessageSquare, Share2 } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Calendar, Clock, ArrowRight, Search, Filter, Tag, Eye, MessageSquare, Share2 } from 'lucide-react'
+
 import { useState } from 'react'
 import { useData } from '../context/DataContext'
 import type { BlogPost } from '../context/DataContext'
@@ -55,11 +55,6 @@ const Blog = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <Link to="/" className="inline-flex items-center text-[#44bee7] hover:text-white transition-colors duration-200 mb-6">
-            <ArrowLeft size={20} className="mr-2" />
-            Back to Home
-          </Link>
-          
           <h1 className="text-5xl font-bold text-white mb-6">
             Sirius <span className="gradient-text">Blog</span>
           </h1>

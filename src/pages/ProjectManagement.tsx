@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, Users, UserCheck, MessageSquare, CheckCircle, Target, GitBranch, Clock, Shield, Star, Zap, FileText, Phone, Briefcase, Award, TrendingUp } from 'lucide-react'
+import { Users, UserCheck, MessageSquare, CheckCircle, Target, GitBranch, Clock, Shield, Star, Zap, FileText, Phone, Briefcase, Award, TrendingUp } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const ProjectManagement = () => {
@@ -191,20 +191,11 @@ const ProjectManagement = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <Link
-              to="/"
-              className="inline-flex items-center space-x-2 text-[#44bee7] hover:text-white transition-colors duration-200 mb-8"
-            >
-              <ArrowLeft size={20} />
-              <span>Back to Home</span>
-            </Link>
-            
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Project <span className="gradient-text">Management</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Our comprehensive project management approach ensures seamless execution, 
-              clear communication, and successful delivery of your software solutions.
+              Streamline your project execution with our expert project management services.
             </p>
           </motion.div>
 

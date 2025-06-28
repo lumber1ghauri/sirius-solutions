@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, CheckCircle, Palette, Zap, Brain, Eye, Users, Smartphone, Monitor, Tablet, Lightbulb, Target, Layers, Grid, Figma, Wand2, Sparkles, MousePointer, PenTool } from 'lucide-react'
+import { CheckCircle, Palette, Zap, Brain, Eye, Users, Smartphone, Monitor, Tablet, Lightbulb, Target, Layers, Grid, Figma, Wand2, Sparkles, MousePointer, PenTool } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const UIUXDesign = () => {
@@ -234,22 +234,12 @@ const UIUXDesign = () => {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <Link
-                to="/"
-                className="inline-flex items-center space-x-2 text-[#44bee7] hover:text-white transition-colors duration-200 mb-8"
-              >
-                <ArrowLeft size={20} />
-                <span>Back to Home</span>
-              </Link>
-              
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
                 UI/UX <span className="gradient-text">Design</span>
               </h1>
               
               <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                We create exceptional user experiences by combining human-centered design principles 
-                with cutting-edge AI tools and industry-leading design platforms like Figma. Our approach 
-                ensures every interface is both beautiful and functional.
+                Create intuitive, engaging user experiences that captivate your audience and drive results.
               </p>
             </motion.div>
           </div>

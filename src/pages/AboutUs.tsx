@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, Users, Award, Heart, Lightbulb, Globe, Code, Bot, Cog, Github, Linkedin, Mail, Star, Zap, Shield, TrendingUp, Calendar } from 'lucide-react'
+import {Users, Award, Heart, Lightbulb, Globe, Code, Bot, Cog, Github, Linkedin, Mail, Star, Zap, Shield, TrendingUp, Calendar } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const AboutUs = () => {
@@ -162,20 +162,12 @@ const AboutUs = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <Link
-            to="/"
-            className="inline-flex items-center space-x-2 text-[#44bee7] hover:text-white transition-colors duration-200 mb-8"
-          >
-            <ArrowLeft size={20} />
-            <span>Back to Home</span>
-          </Link>
-          
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
             About <span className="gradient-text">Sirius Solutions</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            We are three passionate technologists who came together with a shared vision: 
-            to transform businesses through innovative software solutions that make a real difference.
+            We are a cutting-edge software company dedicated to transforming businesses through 
+            innovative technology solutions and exceptional service.
           </p>
         </motion.div>
 

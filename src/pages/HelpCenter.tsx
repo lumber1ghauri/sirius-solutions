@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, Send, User, MessageSquare, CheckCircle, HelpCircle, Search, Book, Video, FileText, Headphones, Paperclip, X } from 'lucide-react'
+import { Send, User, MessageSquare, CheckCircle, HelpCircle, Search, Book, Video, FileText, Headphones, Paperclip, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useState, useRef, useEffect } from 'react'
 
@@ -329,6 +329,7 @@ const HelpCenter = () => {
                   onClick={sendMessage}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
                   disabled={newMessage.trim() === '' && attachedFiles.length === 0}
                   className="bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white p-3 rounded-lg hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
@@ -360,15 +361,8 @@ const HelpCenter = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <Link to="/" className="inline-flex items-center text-[#44bee7] hover:text-white transition-colors duration-200 mb-6">
-            <ArrowLeft size={20} className="mr-2" />
-            Back to Home
-          </Link>
-          
-          <h1 className="text-5xl font-bold text-white mb-6">
-            Help <span className="gradient-text">Center</span>
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold text-white mb-4">Help Center</h1>
+          <p className="text-gray-300 max-w-3xl mx-auto">
             Get the support you need. Browse our resources or contact our expert support team directly.
           </p>
         </motion.div>

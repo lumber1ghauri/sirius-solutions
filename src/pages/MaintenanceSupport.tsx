@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, Shield, Wrench, Clock, Headphones, CheckCircle, Zap, Users, Star, Activity, Phone, Mail, MessageSquare, Monitor, Cloud, Lock, TrendingUp } from 'lucide-react'
+import { Shield, Wrench, Clock, Headphones, CheckCircle, Zap, Users, Star, Activity, Phone, Mail, MessageSquare, Monitor, Cloud, Lock, TrendingUp } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const MaintenanceSupport = () => {
@@ -237,361 +237,352 @@ const MaintenanceSupport = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-          <Link
-            to="/"
-            className="inline-flex items-center space-x-2 text-[#44bee7] hover:text-white transition-colors duration-200 mb-8"
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+              Maintenance & <span className="gradient-text">Support</span>
+            </h1>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              Keep your software running smoothly with our comprehensive maintenance and support services.
+            </p>
+          </motion.div>
+
+          {/* Support Metrics */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
           >
-            <ArrowLeft size={20} />
-            <span>Back to Home</span>
-          </Link>
-          
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Maintenance & <span className="gradient-text">Support</span>
-          </h1>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Comprehensive ongoing support and maintenance services to keep your software 
-            running smoothly, securely, and efficiently.
-          </p>
-        </motion.div>
-
-        {/* Support Metrics */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
-        >
-          {supportMetrics.map((metric, index) => (
-            <motion.div
-              key={metric.metric}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="glass rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300"
-            >
-              <div className="w-12 h-12 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-lg flex items-center justify-center mx-auto mb-4">
-                <metric.icon size={24} className="text-white" />
-              </div>
-              <div className="text-2xl font-bold gradient-text mb-2">{metric.value}</div>
-              <div className="text-gray-300 text-sm">{metric.metric}</div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Support Plans */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Support <span className="gradient-text">Plans</span>
-            </h2>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              Choose the support plan that best fits your business needs and requirements.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            {supportPlans.map((plan, index) => (
+            {supportMetrics.map((metric, index) => (
               <motion.div
-                key={plan.plan}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className={`glass rounded-xl p-8 hover:bg-white/10 transition-all duration-300 relative ${
-                  plan.popular ? 'ring-2 ring-[#44bee7] ring-opacity-50' : ''
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white px-4 py-2 rounded-full text-sm font-bold">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-xl flex items-center justify-center">
-                    <plan.icon size={28} className="text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white">{plan.plan}</h3>
-                    <div className="text-[#44bee7] font-semibold">{plan.price}</div>
-                  </div>
-                </div>
-
-                <div className="mb-6">
-                  <ul className="space-y-3">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="text-gray-300 text-sm flex items-start space-x-2">
-                        <CheckCircle size={16} className="text-[#44bee7] mt-0.5 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="border-t border-gray-600 pt-4 mb-6">
-                  <p className="text-gray-300 text-sm">{plan.bestFor}</p>
-                </div>
-
-                <Link to="/contact-us">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`w-full py-3 rounded-full transition-all duration-300 ${
-                      plan.popular
-                        ? 'bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white hover:shadow-lg pulse-glow'
-                        : 'border border-[#44bee7] text-[#44bee7] hover:bg-[#44bee7] hover:text-white'
-                    }`}
-                  >
-                    Choose Plan
-                  </motion.button>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Support Team Structure */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Support <span className="gradient-text">Team</span>
-            </h2>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              Our dedicated support team ensures your systems receive expert care around the clock.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            {supportTeamStructure.map((member, index) => (
-              <motion.div
-                key={member.role}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="glass rounded-xl p-8 hover:bg-white/10 transition-all duration-300"
-              >
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-xl flex items-center justify-center">
-                    <member.icon size={28} className="text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white">{member.role}</h3>
-                    <div className="text-[#44bee7] font-semibold">{member.count} per team</div>
-                  </div>
-                </div>
-
-                <div className="mb-6">
-                  <h4 className="text-white font-semibold mb-3">Key Responsibilities:</h4>
-                  <ul className="space-y-2">
-                    {member.responsibilities.map((responsibility, idx) => (
-                      <li key={idx} className="text-gray-300 text-sm flex items-start space-x-2">
-                        <CheckCircle size={16} className="text-[#44bee7] mt-0.5 flex-shrink-0" />
-                        <span>{responsibility}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="border-t border-gray-600 pt-4">
-                  <h4 className="text-white font-semibold mb-2">Availability:</h4>
-                  <p className="text-gray-300 text-sm">{member.availability}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Maintenance Services */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Maintenance <span className="gradient-text">Services</span>
-            </h2>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              Comprehensive maintenance services to keep your software secure, optimized, and up-to-date.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {maintenanceServices.map((category, index) => (
-              <motion.div
-                key={category.category}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="glass rounded-xl p-8 hover:bg-white/10 transition-all duration-300"
-              >
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-xl flex items-center justify-center">
-                    <category.icon size={28} className="text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white">{category.category}</h3>
-                </div>
-
-                <div className="space-y-4">
-                  {category.services.map((service, idx) => (
-                    <div key={idx} className="bg-black/20 rounded-lg p-4">
-                      <h4 className="text-white font-semibold mb-2">{service.name}</h4>
-                      <p className="text-gray-300 text-sm">{service.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Support Channels */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Support <span className="gradient-text">Channels</span>
-            </h2>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              Multiple ways to reach our support team for any assistance you need.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {supportChannels.map((channel, index) => (
-              <motion.div
-                key={channel.channel}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                key={metric.metric}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
                 className="glass rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300"
               >
                 <div className="w-12 h-12 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <channel.icon size={24} className="text-white" />
+                  <metric.icon size={24} className="text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{channel.channel}</h3>
-                <div className="text-[#44bee7] text-sm font-semibold mb-2">{channel.availability}</div>
-                <div className="text-gray-300 text-sm mb-3">{channel.description}</div>
-                <div className="text-white text-sm font-mono">{channel.contact}</div>
-                <div className="mt-2 text-[#44bee7] text-xs">Response: {channel.response}</div>
+                <div className="text-2xl font-bold gradient-text mb-2">{metric.value}</div>
+                <div className="text-gray-300 text-sm">{metric.metric}</div>
               </motion.div>
             ))}
-          </div>
-        </motion.section>
+          </motion.div>
 
-        {/* Monitoring Features */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Proactive <span className="gradient-text">Monitoring</span>
-            </h2>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              Comprehensive monitoring and alerting to prevent issues before they impact your business.
-            </p>
-          </div>
+          {/* Support Plans */}
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                Support <span className="gradient-text">Plans</span>
+              </h2>
+              <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+                Choose the support plan that best fits your business needs and requirements.
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {monitoringFeatures.map((feature, index) => (
-              <motion.div
-                key={feature.feature}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.02 }}
-                className="glass rounded-xl p-6 hover:bg-white/10 transition-all duration-300"
-              >
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-lg flex items-center justify-center">
-                    <feature.icon size={24} className="text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">{feature.feature}</h3>
-                </div>
-
-                <div className="mb-4">
-                  <h4 className="text-white font-semibold mb-2">Key Metrics:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {feature.metrics.map((metric, idx) => (
-                      <span
-                        key={idx}
-                        className="bg-[#44bee7]/20 text-[#44bee7] px-3 py-1 rounded-full text-sm"
-                      >
-                        {metric}
+            <div className="grid lg:grid-cols-3 gap-8">
+              {supportPlans.map((plan, index) => (
+                <motion.div
+                  key={plan.plan}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  className={`glass rounded-xl p-8 hover:bg-white/10 transition-all duration-300 relative ${
+                    plan.popular ? 'ring-2 ring-[#44bee7] ring-opacity-50' : ''
+                  }`}
+                >
+                  {plan.popular && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white px-4 py-2 rounded-full text-sm font-bold">
+                        Most Popular
                       </span>
+                    </div>
+                  )}
+
+                  <div className="flex items-center space-x-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-xl flex items-center justify-center">
+                      <plan.icon size={28} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white">{plan.plan}</h3>
+                      <div className="text-[#44bee7] font-semibold">{plan.price}</div>
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <ul className="space-y-3">
+                      {plan.features.map((feature, idx) => (
+                        <li key={idx} className="text-gray-300 text-sm flex items-start space-x-2">
+                          <CheckCircle size={16} className="text-[#44bee7] mt-0.5 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="border-t border-gray-600 pt-4 mb-6">
+                    <p className="text-gray-300 text-sm">{plan.bestFor}</p>
+                  </div>
+
+                  <Link to="/contact-us">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`w-full py-3 rounded-full transition-all duration-300 ${
+                        plan.popular
+                          ? 'bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white hover:shadow-lg pulse-glow'
+                          : 'border border-[#44bee7] text-[#44bee7] hover:bg-[#44bee7] hover:text-white'
+                      }`}
+                    >
+                      Choose Plan
+                    </motion.button>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* Support Team Structure */}
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                Support <span className="gradient-text">Team</span>
+              </h2>
+              <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+                Our dedicated support team ensures your systems receive expert care around the clock.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-8">
+              {supportTeamStructure.map((member, index) => (
+                <motion.div
+                  key={member.role}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  className="glass rounded-xl p-8 hover:bg-white/10 transition-all duration-300"
+                >
+                  <div className="flex items-center space-x-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-xl flex items-center justify-center">
+                      <member.icon size={28} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white">{member.role}</h3>
+                      <div className="text-[#44bee7] font-semibold">{member.count} per team</div>
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <h4 className="text-white font-semibold mb-3">Key Responsibilities:</h4>
+                    <ul className="space-y-2">
+                      {member.responsibilities.map((responsibility, idx) => (
+                        <li key={idx} className="text-gray-300 text-sm flex items-start space-x-2">
+                          <CheckCircle size={16} className="text-[#44bee7] mt-0.5 flex-shrink-0" />
+                          <span>{responsibility}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="border-t border-gray-600 pt-4">
+                    <h4 className="text-white font-semibold mb-2">Availability:</h4>
+                    <p className="text-gray-300 text-sm">{member.availability}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* Maintenance Services */}
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                Maintenance <span className="gradient-text">Services</span>
+              </h2>
+              <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+                Comprehensive maintenance services to keep your software secure, optimized, and up-to-date.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {maintenanceServices.map((category, index) => (
+                <motion.div
+                  key={category.category}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="glass rounded-xl p-8 hover:bg-white/10 transition-all duration-300"
+                >
+                  <div className="flex items-center space-x-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-xl flex items-center justify-center">
+                      <category.icon size={28} className="text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white">{category.category}</h3>
+                  </div>
+
+                  <div className="space-y-4">
+                    {category.services.map((service, idx) => (
+                      <div key={idx} className="bg-black/20 rounded-lg p-4">
+                        <h4 className="text-white font-semibold mb-2">{service.name}</h4>
+                        <p className="text-gray-300 text-sm">{service.description}</p>
+                      </div>
                     ))}
                   </div>
-                </div>
-
-                <div className="border-t border-gray-600 pt-4">
-                  <h4 className="text-white font-semibold mb-2">Alerting:</h4>
-                  <p className="text-gray-300 text-sm">{feature.alerts}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* CTA Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
-          className="text-center"
-        >
-          <div className="glass rounded-2xl p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Keep Your Software <span className="gradient-text">Running Smoothly</span>
-            </h2>
-            <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Partner with our expert support team to ensure your software remains secure, 
-              optimized, and always available when you need it.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact-us">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 pulse-glow"
-                >
-                  Choose Support Plan
-                </motion.button>
-              </Link>
-              <Link to="/contact-us">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="border border-[#44bee7] text-[#44bee7] hover:bg-[#44bee7] hover:text-white px-8 py-3 rounded-full transition-all duration-300"
-                >
-                  Contact Support
-                </motion.button>
-              </Link>
+                </motion.div>
+              ))}
             </div>
-          </div>
-        </motion.section>
+          </motion.section>
+
+          {/* Support Channels */}
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                Support <span className="gradient-text">Channels</span>
+              </h2>
+              <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+                Multiple ways to reach our support team for any assistance you need.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {supportChannels.map((channel, index) => (
+                <motion.div
+                  key={channel.channel}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="glass rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300"
+                >
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <channel.icon size={24} className="text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">{channel.channel}</h3>
+                  <div className="text-[#44bee7] text-sm font-semibold mb-2">{channel.availability}</div>
+                  <div className="text-gray-300 text-sm mb-3">{channel.description}</div>
+                  <div className="text-white text-sm font-mono">{channel.contact}</div>
+                  <div className="mt-2 text-[#44bee7] text-xs">Response: {channel.response}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* Monitoring Features */}
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                Proactive <span className="gradient-text">Monitoring</span>
+              </h2>
+              <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+                Comprehensive monitoring and alerting to prevent issues before they impact your business.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {monitoringFeatures.map((feature, index) => (
+                <motion.div
+                  key={feature.feature}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02 }}
+                  className="glass rounded-xl p-6 hover:bg-white/10 transition-all duration-300"
+                >
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-lg flex items-center justify-center">
+                      <feature.icon size={24} className="text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white">{feature.feature}</h3>
+                  </div>
+
+                  <div className="mb-4">
+                    <h4 className="text-white font-semibold mb-2">Key Metrics:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {feature.metrics.map((metric, idx) => (
+                        <span
+                          key={idx}
+                          className="bg-[#44bee7]/20 text-[#44bee7] px-3 py-1 rounded-full text-sm"
+                        >
+                          {metric}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="border-t border-gray-600 pt-4">
+                    <h4 className="text-white font-semibold mb-2">Alerting:</h4>
+                    <p className="text-gray-300 text-sm">{feature.alerts}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* CTA Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+            className="text-center"
+          >
+            <div className="glass rounded-2xl p-12 max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-white mb-4">
+                Keep Your Software <span className="gradient-text">Running Smoothly</span>
+              </h2>
+              <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+                Partner with our expert support team to ensure your software remains secure, 
+                optimized, and always available when you need it.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/contact-us">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 pulse-glow"
+                  >
+                    Choose Support Plan
+                  </motion.button>
+                </Link>
+                <Link to="/contact-us">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="border border-[#44bee7] text-[#44bee7] hover:bg-[#44bee7] hover:text-white px-8 py-3 rounded-full transition-all duration-300"
+                  >
+                    Contact Support
+                  </motion.button>
+                </Link>
+              </div>
+            </div>
+          </motion.section>
         </div>
       </div>
     </div>

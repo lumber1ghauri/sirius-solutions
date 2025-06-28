@@ -425,7 +425,8 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   }
 
   const getApprovedTestimonials = () => {
-    return testimonials.filter(testimonial => testimonial.status === 'approved')
+    const approved = testimonials.filter(testimonial => testimonial.status === 'approved')
+    return approved.length > 0 ? approved : initialTestimonials
   }
 
   // Form submission functions

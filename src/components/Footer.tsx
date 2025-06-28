@@ -167,6 +167,7 @@ const Footer = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
                 className="bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 pulse-glow"
               >
                 Subscribe

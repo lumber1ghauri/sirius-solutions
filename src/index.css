@@ -177,3 +177,22 @@ select:focus {
   background-size: 200px 100%;
   animation: shimmer 2s infinite;
 }
+
+/* Standardized animation durations */
+.transition-standard {
+  transition-duration: 200ms;
+}
+
+.hover-scale {
+  transition: transform 200ms ease;
+}
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.tap-scale {
+  transition: transform 200ms ease;
+}
+.tap-scale:active {
+  transform: scale(0.95);
+}

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Code, Database, Shield, Zap } from 'lucide-react'
-
+import {useNavigate} from 'react-router-dom'
 const Hero = () => {
   const services = [
     { icon: Code, label: 'Development' },
@@ -8,6 +8,7 @@ const Hero = () => {
     { icon: Shield, label: 'Testing' },
     { icon: Zap, label: 'Maintenance' }
   ]
+  const navigate = useNavigate()
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -73,18 +74,12 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => navigate('/contact-us')}
               className="bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transition-all duration-300 flex items-center space-x-2 pulse-glow"
             >
               <span>Start Your Project</span>
               <ArrowRight size={20} />
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="glass text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all duration-300"
-            >
-              View Our Work
             </motion.button>
           </motion.div>
         </motion.div>

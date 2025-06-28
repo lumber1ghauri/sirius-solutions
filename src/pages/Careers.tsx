@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, MapPin, Clock, DollarSign, GraduationCap, Send, Upload, X, CheckCircle, Star, Award, Coffee, Briefcase, Heart } from 'lucide-react'
+import { MapPin, Clock, DollarSign, GraduationCap, Send, Upload, X, CheckCircle, Star, Award, Coffee, Briefcase, Heart } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
@@ -304,17 +304,11 @@ const Careers = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <Link to="/" className="inline-flex items-center text-[#44bee7] hover:text-white transition-colors duration-200 mb-6">
-            <ArrowLeft size={20} className="mr-2" />
-            Back to Home
-          </Link>
-          
-          <h1 className="text-5xl font-bold text-white mb-6">
-            Join Our <span className="gradient-text">Innovative Team</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Join Our <span className="gradient-text">Team</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Be part of a company that's shaping the future of technology. We're looking for passionate, 
-            talented individuals who want to make a difference.
+            Be part of something extraordinary. Explore exciting career opportunities and grow with us.
           </p>
         </motion.div>
 

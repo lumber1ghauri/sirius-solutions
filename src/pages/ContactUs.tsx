@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, Mail, Phone, MapPin, Clock, Send, Linkedin, Twitter, Github, CheckCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, Send, Linkedin, Twitter, Github, CheckCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
@@ -146,6 +146,7 @@ const ContactUs = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
                   className="bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 pulse-glow"
                 >
                   Back to Home
@@ -183,20 +184,12 @@ const ContactUs = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <Link
-            to="/"
-            className="inline-flex items-center space-x-2 text-[#44bee7] hover:text-white transition-colors duration-200 mb-8"
-          >
-            <ArrowLeft size={20} />
-            <span>Back to Home</span>
-          </Link>
-          
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
             Contact <span className="gradient-text">Us</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Ready to transform your ideas into reality? Let's discuss your project 
-            and explore how we can help you achieve your goals.
+            and find the perfect solution for your business needs.
           </p>
         </motion.div>
 

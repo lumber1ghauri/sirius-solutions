@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, CheckCircle, Code, TestTube, Rocket, FileText, Settings, Target, Zap } from 'lucide-react'
+import { CheckCircle, Code, TestTube, Rocket, FileText, Settings, Target, Zap } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const SoftwareDevelopment = () => {
@@ -160,22 +160,12 @@ const SoftwareDevelopment = () => {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <Link
-                to="/"
-                className="inline-flex items-center space-x-2 text-[#44bee7] hover:text-white transition-colors duration-200 mb-8"
-              >
-                <ArrowLeft size={20} />
-                <span>Back to Home</span>
-              </Link>
-              
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
                 Software <span className="gradient-text">Development</span>
               </h1>
               
               <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                We deliver robust, scalable software solutions using proven methodologies 
-                tailored to your business needs. Our expertise spans the entire development 
-                lifecycle from conception to deployment and beyond.
+                Transform your ideas into powerful, scalable software solutions with our expert development team.
               </p>
             </motion.div>
           </div>

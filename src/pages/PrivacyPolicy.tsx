@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, Shield, Eye, Lock, Database, Globe, UserCheck, AlertTriangle, Calendar, CheckCircle } from 'lucide-react'
+import { Shield, Eye, Lock, Database, Globe, UserCheck, AlertTriangle, Calendar, CheckCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const PrivacyPolicy = () => {
@@ -172,21 +172,9 @@ const PrivacyPolicy = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <Link to="/" className="inline-flex items-center text-[#44bee7] hover:text-white transition-colors duration-200 mb-6">
-            <ArrowLeft size={20} className="mr-2" />
-            Back to Home
-          </Link>
-          
-          <div className="w-16 h-16 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-xl flex items-center justify-center mx-auto mb-6">
-            <Shield size={32} className="text-white" />
-          </div>
-          
-          <h1 className="text-5xl font-bold text-white mb-6">
-            Privacy <span className="gradient-text">Policy</span>
-          </h1>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-            Your privacy is important to us. This policy explains how we collect, use, and protect 
-            your personal information when you use our services.
+          <h1 className="text-4xl font-bold text-white mb-4">Privacy Policy</h1>
+          <p className="text-gray-300 max-w-3xl mx-auto">
+            We are committed to protecting your privacy and ensuring the security of your personal information.
           </p>
         </motion.div>
 

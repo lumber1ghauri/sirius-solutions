@@ -190,7 +190,7 @@ const Navbar = () => {
             <motion.button
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              transition={{ duration: 0.2 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="hidden md:block bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 pulse-glow"

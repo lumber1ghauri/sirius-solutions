@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -23,6 +24,17 @@ import AdminDashboard from './pages/AdminDashboard'
 import { ThemeProvider } from './context/ThemeContext'
 import { DataProvider } from './context/DataContext'
 
+// ScrollToTop component
+const ScrollToTop = () => {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+  return null
+}
+
 // Home page component
 const HomePage = () => (
   <>
@@ -40,6 +52,7 @@ const AppLayout = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-[#44bee7] relative overflow-hidden">
+      <ScrollToTop />
       {/* Background particles/stars effect */}
       {!isAdminDashboard && (
         <div className="absolute inset-0 overflow-hidden">

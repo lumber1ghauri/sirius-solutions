@@ -36,17 +36,11 @@ const About = () => {
     }
   ]
 
-  const stats = [
-    { number: "100+", label: "Projects Completed" },
-    { number: "50+", label: "Happy Clients" },
-    { number: "5+", label: "Years Experience" },
-    { number: "24/7", label: "Support Available" }
-  ]
-
   return (
     <section id="about" className="py-20 relative overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0">        <div className="absolute top-10 right-20 w-64 h-64 bg-[#44bee7]/5 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0">        
+        <div className="absolute top-10 right-20 w-64 h-64 bg-[#44bee7]/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-10 left-20 w-80 h-80 bg-[#3b72b0]/5 rounded-full blur-3xl"></div>
       </div>
 
@@ -68,71 +62,40 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Main content grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          {/* Left side - About content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <div className="glass rounded-2xl p-8">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-lg flex items-center justify-center">
-                  <Target size={24} className="text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">Our Mission</h3>
+        {/* Main content */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="space-y-6 max-w-3xl mx-auto mb-20"
+        >
+          <div className="glass rounded-2xl p-8">
+            <div className="flex items-center space-x-4 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-lg flex items-center justify-center">
+                <Target size={24} className="text-white" />
               </div>
-              <p className="text-gray-300 leading-relaxed">
-                To empower businesses worldwide with innovative software solutions that drive growth, 
-                efficiency, and digital transformation. We believe in creating technology that not only 
-                meets today's needs but anticipates tomorrow's challenges.
-              </p>
+              <h3 className="text-2xl font-bold text-white">Our Mission</h3>
             </div>
+            <p className="text-gray-300 leading-relaxed">
+              To empower businesses worldwide with innovative software solutions that drive growth, 
+              efficiency, and digital transformation. We believe in creating technology that not only 
+              meets today's needs but anticipates tomorrow's challenges.
+            </p>
+          </div>
 
-            <div className="glass rounded-2xl p-8">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-[#3b72b0] to-[#44bee7] rounded-lg flex items-center justify-center">
-                  <Award size={24} className="text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">Our Expertise</h3>
+          <div className="glass rounded-2xl p-8">
+            <div className="flex items-center space-x-4 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-r from-[#3b72b0] to-[#44bee7] rounded-lg flex items-center justify-center">
+                <Award size={24} className="text-white" />
               </div>
-              <p className="text-gray-300 leading-relaxed">
-                With years of experience across diverse industries, our team of expert developers, 
-                designers, and project managers brings unparalleled expertise to every project. 
-                We stay ahead of technology trends to deliver cutting-edge solutions.
-              </p>
+              <h3 className="text-2xl font-bold text-white">Our Expertise</h3>
             </div>
-          </motion.div>
-
-          {/* Right side - Stats */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-2 gap-6"
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="glass rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300"
-              >
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-300 font-medium">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+            <p className="text-gray-300 leading-relaxed">
+            We build practical, high-impact tech — from automation tools to custom dashboards and AI-powered systems. Our team thrives on solving real problems with clean, scalable code. Whether it’s streamlining a workflow or scraping complex data, we focus on shipping fast, staying flexible, and delivering exactly what’s needed. No corporate overhead, just sharp execution.
+            </p>
+          </div>
+        </motion.div>
 
         {/* Services grid */}
         <motion.div
@@ -155,7 +118,7 @@ const About = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="glass rounded-xl p-6 hover:bg-white/10 transition-all duration-300 group"
+                                className="glass rounded-xl p-6 hover:bg-white/10 transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <service.icon size={24} className="text-white" />
@@ -183,9 +146,7 @@ const About = () => {
               <h3 className="text-2xl font-bold text-white">Why Choose Us?</h3>
             </div>
             <p className="text-gray-300 leading-relaxed text-lg">
-              At Sirius Solutions, we don't just build software – we build partnerships. Our client-centric 
-              approach, combined with our technical expertise and commitment to excellence, ensures that 
-              every project delivers exceptional value and drives real business results.
+            At Sirius Solutions, you're not just another ticket in a queue. Unlike big firms juggling thousands of clients, we work closely with each project — giving it the attention and urgency it truly deserves. Being a lean startup means we adapt faster, build quicker, and communicate directly — no layers, no delays. We treat your growth like our own, because your success is our portfolio. You're not just hiring a team — you're getting partners.
             </p>
             
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
