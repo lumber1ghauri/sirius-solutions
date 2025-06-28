@@ -1,4 +1,4 @@
-import type { BlogPost, Testimonial, FormSubmission, ChatSession } from '../context/DataContext'
+import type { Testimonial, FormSubmission, ChatSession } from '../context/DataContext'
 
 const API_BASE_URL = 'http://localhost:3001/api'
 
@@ -36,35 +36,6 @@ class ApiService {
       console.error('API request failed:', error)
       return { error: 'Network error occurred' }
     }
-  }
-
-  // Blog Posts API
-  async getBlogPosts(): Promise<ApiResponse<BlogPost[]>> {
-    return this.request<BlogPost[]>('/blog-posts')
-  }
-
-  async getBlogPost(id: string): Promise<ApiResponse<BlogPost>> {
-    return this.request<BlogPost>(`/blog-posts/${id}`)
-  }
-
-  async createBlogPost(post: Omit<BlogPost, 'id' | 'views' | 'comments' | 'publishDate'>): Promise<ApiResponse<BlogPost>> {
-    return this.request<BlogPost>('/blog-posts', {
-      method: 'POST',
-      body: JSON.stringify(post),
-    })
-  }
-
-  async updateBlogPost(id: string, updates: Partial<BlogPost>): Promise<ApiResponse<BlogPost>> {
-    return this.request<BlogPost>(`/blog-posts/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify(updates),
-    })
-  }
-
-  async deleteBlogPost(id: string): Promise<ApiResponse<{ message: string }>> {
-    return this.request<{ message: string }>(`/blog-posts/${id}`, {
-      method: 'DELETE',
-    })
   }
 
   // Testimonials API
@@ -138,17 +109,6 @@ class ApiService {
   }
 
   // Analytics API
-  async getBlogAnalytics(): Promise<ApiResponse<{
-    totalPosts: number
-    publishedPosts: number
-    draftPosts: number
-    totalViews: number
-    totalComments: number
-    topPosts: BlogPost[]
-  }>> {
-    return this.request('/analytics/blog')
-  }
-
   async getFormAnalytics(): Promise<ApiResponse<{
     total: number
     byStatus: Record<string, number>
@@ -166,6 +126,31 @@ class ApiService {
     memory: object
   }>> {
     return this.request('/health')
+  }
+
+  // Blog related methods
+  async getBlogPosts(): Promise<ApiResponse<any[]>> {
+    return this.request<any[]>('/blog-posts')
+  }
+
+  async createBlogPost(post: any): Promise<ApiResponse<any>> {
+    return this.request<any>('/blog-posts', {
+      method: 'POST',
+      body: JSON.stringify(post),
+    })
+  }
+
+  async updateBlogPost(id: string, updates: any): Promise<ApiResponse<any>> {
+    return this.request<any>(`/blog-posts/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(updates),
+    })
+  }
+
+  async deleteBlogPost(id: string): Promise<ApiResponse<{ message: string }>> {
+    return this.request<{ message: string }>(`/blog-posts/${id}`, {
+      method: 'DELETE',
+    })
   }
 }
 
@@ -188,44 +173,7 @@ export class HybridDataService {
     })
   }
 
-  async getBlogPosts(): Promise<BlogPost[]> {
-    if (this.isOnline) {
-      const response = await apiService.getBlogPosts()
-      if (response.data) {
-        // Cache in localStorage
-        localStorage.setItem('sirius_blog_posts', JSON.stringify(response.data))
-        return response.data
-      }
-    }
-    
-    // Fallback to localStorage
-    try {
-      const cached = localStorage.getItem('sirius_blog_posts')
-      return cached ? JSON.parse(cached) : []
-    } catch {
-      return []
-    }
-  }
-
-  async saveBlogPost(post: BlogPost): Promise<boolean> {
-    if (this.isOnline) {
-      const response = post.id.startsWith('temp_') 
-        ? await apiService.createBlogPost(post)
-        : await apiService.updateBlogPost(post.id, post)
-      
-      if (response.data) {
-        this.updateLocalCache('sirius_blog_posts', response.data, post.id)
-        return true
-      }
-    }
-    
-    // Save to localStorage with temporary ID
-    const tempPost = { ...post, id: post.id.startsWith('temp_') ? post.id : `temp_${Date.now()}` }
-    this.updateLocalCache('sirius_blog_posts', tempPost, post.id)
-    return true
-  }
-
-  private updateLocalCache(key: string, item: BlogPost | Testimonial | FormSubmission | ChatSession, id: string) {
+  private updateLocalCache(key: string, item: Testimonial | FormSubmission | ChatSession, id: string) {
     try {
       const cached = JSON.parse(localStorage.getItem(key) || '[]')
       const index = cached.findIndex((i: { id: string }) => i.id === id)
@@ -245,16 +193,8 @@ export class HybridDataService {
   private async syncLocalDataToServer() {
     // Sync any temporary data to server when coming online
     try {
-      const blogPosts = JSON.parse(localStorage.getItem('sirius_blog_posts') || '[]')
-      const tempPosts = blogPosts.filter((post: BlogPost) => post.id.startsWith('temp_'))
-      
-      for (const post of tempPosts) {
-        const response = await apiService.createBlogPost(post)
-        if (response.data) {
-          // Replace temp post with server post
-          this.updateLocalCache('sirius_blog_posts', response.data, post.id)
-        }
-      }
+      // Handle offline form submissions, testimonials, and chat sessions when back online
+      // Implementation specific to each type can be added here
     } catch (error) {
       console.error('Failed to sync data to server:', error)
     }

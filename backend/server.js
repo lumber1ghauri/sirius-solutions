@@ -13,7 +13,6 @@ const PORT = process.env.PORT || 3001
 // Database file paths
 const DB_DIR = path.join(__dirname, 'data')
 const DB_FILES = {
-  blogPosts: path.join(DB_DIR, 'blog-posts.json'),
   testimonials: path.join(DB_DIR, 'testimonials.json'),
   formSubmissions: path.join(DB_DIR, 'form-submissions.json'),
   chatSessions: path.join(DB_DIR, 'chat-sessions.json')
@@ -63,74 +62,6 @@ const writeData = (file, data) => {
   }
 }
 
-// Blog Posts API
-app.get('/api/blog-posts', (req, res) => {
-  const posts = readData(DB_FILES.blogPosts)
-  res.json(posts)
-})
-
-app.get('/api/blog-posts/:id', (req, res) => {
-  const posts = readData(DB_FILES.blogPosts)
-  const post = posts.find(p => p.id === req.params.id)
-  
-  if (!post) {
-    return res.status(404).json({ error: 'Blog post not found' })
-  }
-  
-  res.json(post)
-})
-
-app.post('/api/blog-posts', (req, res) => {
-  const posts = readData(DB_FILES.blogPosts)
-  const newPost = {
-    id: uuidv4(),
-    ...req.body,
-    views: 0,
-    comments: 0,
-    publishDate: new Date().toISOString().split('T')[0]
-  }
-  
-  posts.unshift(newPost)
-  
-  if (writeData(DB_FILES.blogPosts, posts)) {
-    res.status(201).json(newPost)
-  } else {
-    res.status(500).json({ error: 'Failed to save blog post' })
-  }
-})
-
-app.put('/api/blog-posts/:id', (req, res) => {
-  const posts = readData(DB_FILES.blogPosts)
-  const index = posts.findIndex(p => p.id === req.params.id)
-  
-  if (index === -1) {
-    return res.status(404).json({ error: 'Blog post not found' })
-  }
-  
-  posts[index] = { ...posts[index], ...req.body }
-  
-  if (writeData(DB_FILES.blogPosts, posts)) {
-    res.json(posts[index])
-  } else {
-    res.status(500).json({ error: 'Failed to update blog post' })
-  }
-})
-
-app.delete('/api/blog-posts/:id', (req, res) => {
-  const posts = readData(DB_FILES.blogPosts)
-  const filteredPosts = posts.filter(p => p.id !== req.params.id)
-  
-  if (posts.length === filteredPosts.length) {
-    return res.status(404).json({ error: 'Blog post not found' })
-  }
-  
-  if (writeData(DB_FILES.blogPosts, filteredPosts)) {
-    res.json({ message: 'Blog post deleted successfully' })
-  } else {
-    res.status(500).json({ error: 'Failed to delete blog post' })
-  }
-})
-
 // Testimonials API
 app.get('/api/testimonials', (req, res) => {
   const testimonials = readData(DB_FILES.testimonials)
@@ -142,8 +73,8 @@ app.post('/api/testimonials', (req, res) => {
   const newTestimonial = {
     id: uuidv4(),
     ...req.body,
-    submittedDate: new Date().toISOString().split('T')[0],
-    status: 'pending'
+    status: 'pending',
+    date: new Date().toISOString()
   }
   
   testimonials.unshift(newTestimonial)
@@ -198,8 +129,8 @@ app.post('/api/form-submissions', (req, res) => {
   const newSubmission = {
     id: uuidv4(),
     ...req.body,
-    timestamp: new Date().toISOString(),
-    status: 'new'
+    status: 'new',
+    timestamp: new Date().toISOString()
   }
   
   submissions.unshift(newSubmission)
@@ -216,7 +147,7 @@ app.put('/api/form-submissions/:id', (req, res) => {
   const index = submissions.findIndex(s => s.id === req.params.id)
   
   if (index === -1) {
-    return res.status(404).json({ error: 'Form submission not found' })
+    return res.status(404).json({ error: 'Submission not found' })
   }
   
   submissions[index] = { ...submissions[index], ...req.body }
@@ -224,7 +155,7 @@ app.put('/api/form-submissions/:id', (req, res) => {
   if (writeData(DB_FILES.formSubmissions, submissions)) {
     res.json(submissions[index])
   } else {
-    res.status(500).json({ error: 'Failed to update form submission' })
+    res.status(500).json({ error: 'Failed to update submission' })
   }
 })
 
@@ -239,7 +170,10 @@ app.post('/api/chat-sessions', (req, res) => {
   const newSession = {
     id: uuidv4(),
     ...req.body,
-    messages: req.body.messages || []
+    status: 'active',
+    messages: [],
+    createdAt: new Date().toISOString(),
+    lastUpdated: new Date().toISOString()
   }
   
   sessions.unshift(newSession)
@@ -247,7 +181,7 @@ app.post('/api/chat-sessions', (req, res) => {
   if (writeData(DB_FILES.chatSessions, sessions)) {
     res.status(201).json(newSession)
   } else {
-    res.status(500).json({ error: 'Failed to save chat session' })
+    res.status(500).json({ error: 'Failed to create chat session' })
   }
 })
 
@@ -259,7 +193,11 @@ app.put('/api/chat-sessions/:id', (req, res) => {
     return res.status(404).json({ error: 'Chat session not found' })
   }
   
-  sessions[index] = { ...sessions[index], ...req.body }
+  sessions[index] = {
+    ...sessions[index],
+    ...req.body,
+    lastUpdated: new Date().toISOString()
+  }
   
   if (writeData(DB_FILES.chatSessions, sessions)) {
     res.json(sessions[index])
@@ -283,79 +221,65 @@ app.post('/api/chat-sessions/:id/messages', (req, res) => {
   }
   
   sessions[index].messages.push(newMessage)
+  sessions[index].lastUpdated = new Date().toISOString()
   
   if (writeData(DB_FILES.chatSessions, sessions)) {
-    res.status(201).json(newMessage)
+    res.json(newMessage)
   } else {
     res.status(500).json({ error: 'Failed to add message' })
   }
 })
 
 // Analytics API
-app.get('/api/analytics/blog', (req, res) => {
-  const posts = readData(DB_FILES.blogPosts)
-  
-  const analytics = {
-    totalPosts: posts.length,
-    publishedPosts: posts.filter(p => p.status === 'published').length,
-    draftPosts: posts.filter(p => p.status === 'draft').length,
-    totalViews: posts.reduce((sum, p) => sum + (p.views || 0), 0),
-    totalComments: posts.reduce((sum, p) => sum + (p.comments || 0), 0),
-    topPosts: posts
-      .filter(p => p.status === 'published')
-      .sort((a, b) => (b.views || 0) - (a.views || 0))
-      .slice(0, 5)
-  }
-  
-  res.json(analytics)
-})
-
 app.get('/api/analytics/forms', (req, res) => {
   const submissions = readData(DB_FILES.formSubmissions)
   
-  const byStatus = submissions.reduce((acc, sub) => {
-    acc[sub.status] = (acc[sub.status] || 0) + 1
-    return acc
-  }, {})
-  
-  const byType = submissions.reduce((acc, sub) => {
-    acc[sub.type] = (acc[sub.type] || 0) + 1
-    return acc
-  }, {})
-  
   const analytics = {
-    total: submissions.length,
-    byStatus,
-    byType,
+    totalSubmissions: submissions.length,
+    byStatus: {
+      new: submissions.filter(s => s.status === 'new').length,
+      read: submissions.filter(s => s.status === 'read').length,
+      responded: submissions.filter(s => s.status === 'responded').length
+    },
+    byType: submissions.reduce((acc, s) => {
+      acc[s.type] = (acc[s.type] || 0) + 1
+      return acc
+    }, {}),
     recent: submissions.slice(0, 10)
   }
   
   res.json(analytics)
 })
 
-// Health check
+app.get('/api/analytics/chats', (req, res) => {
+  const sessions = readData(DB_FILES.chatSessions)
+  
+  const analytics = {
+    totalSessions: sessions.length,
+    activeSessions: sessions.filter(s => s.status === 'active').length,
+    byPriority: {
+      low: sessions.filter(s => s.priority === 'low').length,
+      medium: sessions.filter(s => s.priority === 'medium').length,
+      high: sessions.filter(s => s.priority === 'high').length,
+      critical: sessions.filter(s => s.priority === 'critical').length
+    },
+    averageMessagesPerSession: sessions.reduce((sum, s) => sum + s.messages.length, 0) / sessions.length || 0,
+    recentSessions: sessions.slice(0, 10)
+  }
+  
+  res.json(analytics)
+})
+
+// Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
+  res.json({
+    status: 'ok',
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
     memory: process.memoryUsage()
   })
 })
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack)
-  res.status(500).json({ error: 'Something went wrong!' })
-})
-
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ error: 'Route not found' })
-})
-
 app.listen(PORT, () => {
-  console.log(`🚀 Sirius Solutions Backend API running on port ${PORT}`)
-  console.log(`📊 API Health: http://localhost:${PORT}/api/health`)
-  console.log(`📁 Data Directory: ${DB_DIR}`)
+  console.log(`Server running on port ${PORT}`)
 })

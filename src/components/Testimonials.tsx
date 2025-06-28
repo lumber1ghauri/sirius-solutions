@@ -112,11 +112,10 @@ const Testimonials = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2 }}
             onClick={() => navigate('/contact-us')}
-            className="bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white px-8 py-3 rounded-full text-lg font-semibold hover:shadow-lg transition-all duration-300 pulse-glow"
+            className="bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 pulse-glow"
           >
-            Start Your Project
+            Start Your Project Today
           </motion.button>
         </motion.div>
       </div>

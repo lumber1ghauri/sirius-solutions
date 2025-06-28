@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion'
-import {Users, Award, Heart, Lightbulb, Globe, Code, Bot, Cog, Github, Linkedin, Mail, Star, Zap, Shield, TrendingUp, Calendar } from 'lucide-react'
+import { Heart, Lightbulb, Github, Linkedin, Mail, Star, Zap, Shield, TrendingUp } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const AboutUs = () => {
   const founders = [
     {
-      name: "GM Ukasha",
-      role: "Co-Founder & Chief Technology Officer",
-      education: "BSIT - Automation Engineering Specialist",
-      specialization: "Automation Engineering",
-      image: "/api/placeholder/300/300", // Placeholder - replace with actual image
+      name: "Ukasha Zahid",
+      role: "Co-Founder & CEO",
+      education: "BSIT - AI and Automation Specialist",
+      specialization: "Agentic AI",
+      image: "/ukasha.png", // Updated to use actual image
       bio: "Ukasha is a visionary automation engineer with expertise in creating intelligent systems that streamline business processes. His passion for automation drives our commitment to building efficient, scalable solutions that reduce manual effort and maximize productivity.",
       expertise: [
         "Process Automation & Optimization",
@@ -19,24 +19,24 @@ const AboutUs = () => {
         "System Integration & APIs",
         "Cloud Infrastructure Management"
       ],
-      technologies: ["Python", "Docker", "Kubernetes", "Jenkins", "Terraform", "AWS", "Azure"],
+      technologies: ["Python", "Docker", "n8n", "Scrappy", "Selenium", "AWS", "Azure"],
       achievements: [
         "Automated 50+ business processes for enterprise clients",
         "Reduced deployment time by 80% through CI/CD optimization",
         "Led digital transformation initiatives for Fortune 500 companies"
       ],
       social: {
-        github: "https://github.com/gmukasha",
-        linkedin: "https://linkedin.com/in/gmukasha",
-        email: "ukasha@siriussolutions.com"
+        github: "https://github.com/lumber1ghauri",
+        linkedin: "https://www.linkedin.com/in/ukasha-zahid-46b397222",
+        email: "ukashazahid3@gmail.com"
       }
     },
     {
       name: "M Mujeeb",
-      role: "Co-Founder & Chief AI Officer",
-      education: "BSIT - Artificial Intelligence Specialist",
+      role: "Co-Founder & CTO",
+      education: "BSIT - AI and Web Development Specialist",
       specialization: "Artificial Intelligence",
-      image: "/api/placeholder/300/300", // Placeholder - replace with actual image
+      image: "/mujeeb.png", // Placeholder - replace with actual image
       bio: "Mujeeb is an AI innovator who brings cutting-edge artificial intelligence solutions to real-world problems. His deep understanding of machine learning and data science enables us to create intelligent applications that learn, adapt, and evolve with user needs.",
       expertise: [
         "Machine Learning & Deep Learning",
@@ -53,17 +53,17 @@ const AboutUs = () => {
         "Created award-winning AI chatbot for customer service"
       ],
       social: {
-        github: "https://github.com/mmujeeb",
-        linkedin: "https://linkedin.com/in/mmujeeb",
-        email: "mujeeb@siriussolutions.com"
+        github: "https://github.com/mujeeb4",
+        linkedin: "https://www.linkedin.com/in/muhammad-mujeeb-59017623b/",
+        email: "mujeebrathore4@gmail.com"
       }
     },
     {
       name: "Hassan A",
-      role: "Co-Founder & Chief Development Officer",
-      education: "BSIT - Full Stack Development Specialist",
+      role: "Co-Founder & CDO",
+      education: "BSIT - Devops and Development Specialist",
       specialization: "Full Stack Development",
-      image: "/api/placeholder/300/300", // Placeholder - replace with actual image
+      image: "/hassan.png", // Placeholder - replace with actual image
       bio: "Hassan is a full-stack development expert who architects and builds robust, scalable web applications. His comprehensive understanding of both frontend and backend technologies ensures our solutions are not only functional but also user-friendly and performant.",
       expertise: [
         "Frontend Development (React, Vue, Angular)",
@@ -81,17 +81,10 @@ const AboutUs = () => {
       ],
       social: {
         github: "https://github.com/hassana",
-        linkedin: "https://linkedin.com/in/hassana",
-        email: "hassan@siriussolutions.com"
+        linkedin: "https://www.linkedin.com/in/hassan-adil-5214ba261/",
+        email: "hassanadil@gmail.com"
       }
     }
-  ]
-
-  const companyStats = [
-    { number: "2021", label: "Founded", icon: Calendar },
-    { number: "100+", label: "Projects Completed", icon: Award },
-    { number: "50+", label: "Happy Clients", icon: Users },
-    { number: "5+", label: "Countries Served", icon: Globe }
   ]
 
   const companyValues = [
@@ -114,34 +107,6 @@ const AboutUs = () => {
       title: "Continuous Learning",
       icon: TrendingUp,
       description: "We stay ahead of technology trends and continuously upgrade our skills to provide the most advanced solutions available."
-    }
-  ]
-
-  const timeline = [
-    {
-      year: "2021",
-      title: "The Beginning",
-      description: "Three passionate BSIT graduates with complementary skills come together with a shared vision to revolutionize software development."
-    },
-    {
-      year: "2022",
-      title: "First Milestone",
-      description: "Successfully delivered our first major project and established our reputation for quality and innovation in the local market."
-    },
-    {
-      year: "2023",
-      title: "Expansion",
-      description: "Expanded our team and service offerings, introducing AI-powered solutions and advanced automation services to our portfolio."
-    },
-    {
-      year: "2024",
-      title: "Global Reach",
-      description: "Extended our services internationally, serving clients across multiple countries and establishing strategic partnerships."
-    },
-    {
-      year: "2025",
-      title: "Innovation Hub",
-      description: "Became a recognized leader in AI integration and automation, with a growing portfolio of award-winning solutions."
     }
   ]
 
@@ -169,31 +134,6 @@ const AboutUs = () => {
             We are a cutting-edge software company dedicated to transforming businesses through 
             innovative technology solutions and exceptional service.
           </p>
-        </motion.div>
-
-        {/* Company Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
-        >
-          {companyStats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="glass rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300"
-            >
-              <div className="w-12 h-12 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-lg flex items-center justify-center mx-auto mb-4">
-                <stat.icon size={24} className="text-white" />
-              </div>
-              <div className="text-3xl font-bold gradient-text mb-2">{stat.number}</div>
-              <div className="text-gray-300 text-sm">{stat.label}</div>
-            </motion.div>
-          ))}
         </motion.div>
 
         {/* Our Story */}
@@ -224,10 +164,6 @@ const AboutUs = () => {
                   digital landscape. We believe that with the right combination of automation, 
                   artificial intelligence, and full-stack development, any business can reach 
                   new heights of success.
-                </p>
-                <p className="text-gray-300 text-lg leading-relaxed">
-                  Today, we're proud to have helped over 50 businesses across 5 countries 
-                  achieve their digital transformation goals, and we're just getting started.
                 </p>
               </div>
               
@@ -284,17 +220,12 @@ const AboutUs = () => {
                       className="relative"
                     >
                       <div className="w-80 h-80 mx-auto bg-gradient-to-br from-[#44bee7] to-[#3b72b0] rounded-2xl p-1">
-                        <div className="w-full h-full bg-gray-800 rounded-xl flex items-center justify-center">
-                          {/* Placeholder for actual image */}
-                          <div className="text-center">
-                            <div className="w-24 h-24 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-full flex items-center justify-center mx-auto mb-4">
-                              {founder.specialization === "Automation Engineering" && <Cog size={40} className="text-white" />}
-                              {founder.specialization === "Artificial Intelligence" && <Bot size={40} className="text-white" />}
-                              {founder.specialization === "Full Stack Development" && <Code size={40} className="text-white" />}
-                            </div>
-                            <div className="text-white font-bold text-xl">{founder.name}</div>
-                            <div className="text-gray-300 text-sm">{founder.role}</div>
-                          </div>
+                        <div className="w-full h-full bg-gray-800 rounded-xl overflow-hidden">
+                          <img 
+                            src={founder.image} 
+                            alt={`${founder.name} - ${founder.role}`}
+                            className="w-full h-full object-cover"
+                          />
                         </div>
                       </div>
                       
@@ -340,18 +271,6 @@ const AboutUs = () => {
                           </span>
                         ))}
                       </div>
-                    </div>
-
-                    <div>
-                      <h4 className="text-white font-bold mb-3">Key Achievements:</h4>
-                      <ul className="space-y-2">
-                        {founder.achievements.map((achievement, idx) => (
-                          <li key={idx} className="flex items-start space-x-2">
-                            <Award size={16} className="text-[#44bee7] mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
                     </div>
 
                     <div className="border-t border-gray-600 pt-4">
@@ -422,48 +341,6 @@ const AboutUs = () => {
           </div>
         </motion.section>
 
-        {/* Timeline */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Our <span className="gradient-text">Journey</span>
-            </h2>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              From ambitious students to industry leaders - here's how we've grown over the years.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#44bee7] to-[#3b72b0]"></div>
-              
-              {timeline.map((item, index) => (
-                <motion.div
-                  key={item.year}
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="relative flex items-start space-x-6 pb-12 last:pb-0"
-                >
-                  <div className="w-16 h-16 bg-gradient-to-r from-[#44bee7] to-[#3b72b0] rounded-full flex items-center justify-center text-white font-bold z-10">
-                    {item.year}
-                  </div>
-                  <div className="glass rounded-xl p-6 flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                    <p className="text-gray-300 leading-relaxed">{item.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.section>
-
         {/* CTA Section */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
@@ -480,13 +357,15 @@ const AboutUs = () => {
               development can transform your business and drive your success.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 pulse-glow"
-              >
-                Start Your Project
-              </motion.button>
+              <Link to="/contact-us">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-r from-[#44bee7] to-[#3b72b0] text-white px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 pulse-glow"
+                >
+                  Start Your Project
+                </motion.button>
+              </Link>
               <Link to="/#contact">
                 <motion.button
                   whileHover={{ scale: 1.05 }}

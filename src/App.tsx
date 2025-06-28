@@ -15,7 +15,6 @@ import ArtificialIntelligence from './pages/ArtificialIntelligence'
 import AboutUs from './pages/AboutUs'
 import ContactUs from './pages/ContactUs'
 import Careers from './pages/Careers'
-import Blog from './pages/Blog'
 import HelpCenter from './pages/HelpCenter'
 import TermsAndConditions from './pages/TermsAndConditions'
 import PrivacyPolicy from './pages/PrivacyPolicy'
@@ -73,7 +72,6 @@ const AppLayout = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/careers" element={<Careers />} />
-          <Route path="/blog" element={<Blog />} />
           <Route path="/help-center" element={<HelpCenter />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
