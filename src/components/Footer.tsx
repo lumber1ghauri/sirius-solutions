@@ -30,10 +30,9 @@ const Footer = () => {
   }
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/sirius-solutions', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/company/sirius-solutions', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/107927760', label: 'LinkedIn' },
     { icon: Twitter, href: 'https://twitter.com/sirius_solutions', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:hello@siriussolutions.com', label: 'Email' }
+    { icon: Mail, href: 'mailto:ukashazahid3@gmail.com', label: 'Email' }
   ]
 
   const scrollToTop = () => {
