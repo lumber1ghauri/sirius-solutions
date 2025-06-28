@@ -15,7 +15,6 @@ const Testimonials = () => {
       position: "CTO",
       content: "Sirius Solutions completely transformed our legacy systems. Their innovative approach and attention to detail resulted in a 60% increase in our system performance. The team's expertise in modern technologies is unparalleled.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b77c?w=100&h=100&fit=crop&crop=face",
       status: 'approved' as const,
       submittedDate: '2025-06-20'
     },
@@ -26,7 +25,6 @@ const Testimonials = () => {
       position: "Founder & CEO",
       content: "Working with Sirius Solutions was a game-changer for our startup. They not only delivered exceptional software but also provided strategic insights that helped us scale rapidly. Truly a partner you can rely on.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
       status: 'approved' as const,
       submittedDate: '2025-06-18'
     },
@@ -37,7 +35,6 @@ const Testimonials = () => {
       position: "Director of Digital Innovation",
       content: "The team at Sirius Solutions delivered beyond our expectations. Their comprehensive testing and maintenance services ensure our applications run flawlessly 24/7. Outstanding professionalism and technical expertise.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
       status: 'approved' as const,
       submittedDate: '2025-06-15'
     },
@@ -48,7 +45,6 @@ const Testimonials = () => {
       position: "VP of Engineering",
       content: "Sirius Solutions doesn't just code - they understand business. Their strategic approach to software development helped us reduce costs by 40% while improving user experience significantly.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
       status: 'approved' as const,
       submittedDate: '2025-06-12'
     },
@@ -59,7 +55,6 @@ const Testimonials = () => {
       position: "Product Manager",
       content: "From design to deployment, Sirius Solutions handled everything with precision. Their agile methodology and transparent communication made the entire process seamless. Highly recommended!",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop&crop=face",
       status: 'approved' as const,
       submittedDate: '2025-06-10'
     },
@@ -70,7 +65,6 @@ const Testimonials = () => {
       position: "Chief Innovation Officer",
       content: "In the highly regulated healthcare industry, Sirius Solutions proved their expertise by delivering compliant, secure, and innovative solutions. Their attention to quality and security is exceptional.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face",
       status: 'approved' as const,
       submittedDate: '2025-06-08'
     }
@@ -155,11 +149,7 @@ const Testimonials = () => {
 
               {/* Author Info */}
               <div className="flex items-center">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover mr-4"
-                />
+
                 <div>
                   <h4 className="text-white font-semibold">{testimonial.name}</h4>
                   <p className="text-gray-400 text-sm">{testimonial.position}</p>

@@ -30,19 +30,37 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "hello@siriussolutions.com",
+      details: (
+        <a 
+          href="mailto:ukashazahid3@gmail.com?subject=Inquiry from Website"
+          className="hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ukashazahid3@gmail.com
+        </a>
+      ),
       description: "Send us an email anytime"
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: "+1 (555) 123-4567",
+      details: "+92 309 7928616",
       description: "Mon-Fri from 8am to 5pm"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      details: "123 Innovation Drive, Tech City, TC 12345",
+      details: (
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=E-1+Block+Johar+Town+Lahore+Pakistan"
+          className="hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          E-1 Block, Johar Town, Lahore
+        </a>
+      ),
       description: "Come say hello at our office"
     },
     {
