@@ -196,7 +196,7 @@ const TermsAndConditions = () => {
               <p className="text-gray-300">
                 These Terms and Conditions are legally binding. By using our services, you acknowledge that you have read, 
                 understood, and agree to be bound by these terms. If you have any questions, please contact our legal team 
-                at <span className="text-[#44bee7]">legal@siriussolutions.com</span> before proceeding.
+                at <span className="text-[#44bee7]">ukashazahid3@gmail.com</span> before proceeding.
               </p>
             </div>
           </div>
@@ -294,7 +294,7 @@ const TermsAndConditions = () => {
                 whileTap={{ scale: 0.95 }}
                 className="border border-[#44bee7] text-[#44bee7] hover:bg-[#44bee7] hover:text-white px-8 py-3 rounded-full transition-all duration-300"
               >
-                Email: legal@siriussolutions.com
+                Email: ukashazahid3@gmail.com
               </motion.button>
             </a>
           </div>
