@@ -902,9 +902,6 @@ const Careers = () => {
                 <p className="text-xl text-gray-300 mb-4">
                   We'll keep you updated about new job opportunities at Sirius Solutions.
                 </p>
-                <p className="text-gray-400">
-                  Redirecting you to home page...
-                </p>
               </motion.div>
             )}
           </motion.div>
