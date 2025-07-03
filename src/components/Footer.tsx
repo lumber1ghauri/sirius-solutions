@@ -32,7 +32,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Linkedin, href: 'https://www.linkedin.com/company/107927760', label: 'LinkedIn' },
     { icon: Twitter, href: 'https://twitter.com/sirius_solutions', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:ukashazahid3@gmail.com', label: 'Email' }
+    { icon: Mail, href: 'mailto:ukasha@siriussolutions.xyz', label: 'Email' }
   ]
 
   const scrollToTop = () => {
@@ -78,7 +78,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center space-x-3 text-gray-300">
                   <Mail size={16} className="text-[#44bee7]" />
-                  <span>ukashazahid3@gmail.com</span>
+                  <span>ukasha@siriussolutions.xyz</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-300">
                   <MapPin size={16} className="text-[#44bee7]" />

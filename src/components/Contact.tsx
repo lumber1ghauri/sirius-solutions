@@ -37,7 +37,7 @@ const Contact = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          ukashazahid3@gmail.com
+          ukasha@siriussolutions.xyz
         </a>
       ),
       description: "Send us an email anytime"
@@ -45,7 +45,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: "+92 309 7928616",
+      details: "+92 326 4647602",
       description: "Mon-Fri from 8am to 5pm"
     },
     {

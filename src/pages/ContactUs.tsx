@@ -24,16 +24,16 @@ const ContactUs = () => {
     {
       icon: Mail,
       title: "Email Us",
-      info: "ukashazahid3@gmail.com",
+      info: "ukasha@siriussolutions.xyz",
       description: "Send us an email and we'll respond within 24 hours",
-      action: "mailto:ukashazahid3@gmail.com"
+      action: "mailto:ukasha@siriussolutions.xyz"
     },
     {
       icon: Phone,
       title: "Call Us",
-      info: "+92 3097928616",
+      info: "+92 326 4647602",
       description: "Speak directly with our team during business hours",
-      action: "tel:+923264647602"
+      
     },
     {
       icon: MapPin,
